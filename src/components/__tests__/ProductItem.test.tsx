@@ -2,6 +2,12 @@ import React from 'react';
 import { render } from '@testing-library/react-native';
 import ProductItem from '../ProductItem';
 
+const mockNavigation = { navigate: jest.fn() };
+
+jest.mock('@react-navigation/native', () => ({
+  useNavigation: () => mockNavigation,
+}));
+
 test('renders product item', () => {
   const product = {
     id: '1',
